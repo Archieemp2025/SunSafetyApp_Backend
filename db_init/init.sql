@@ -1,0 +1,37 @@
+-- 1. Dimension tables
+
+DROP TABLE IF EXISTS CANCER_INCIDENCE_STAT CASCADE; 
+DROP TABLE IF EXISTS CANCER_TYPE CASCADE;
+DROP TABLE IF EXISTS SEX CASCADE;
+DROP TABLE IF EXISTS AGE_GROUP CASCADE;
+
+
+CREATE TABLE CANCER_TYPE (
+    cancer_id SERIAL PRIMARY KEY,
+    cancer_name VARCHAR(255) UNIQUE NOT NULL,
+    icd10_code VARCHAR(20) -- New column added here
+);
+
+
+CREATE TABLE SEX (
+    sex_id SERIAL PRIMARY KEY,
+    sex_label VARCHAR(50) UNIQUE NOT NULL
+);
+
+
+CREATE TABLE AGE_GROUP (
+    age_group_id SERIAL PRIMARY KEY,
+    age_bracket VARCHAR(50) UNIQUE NOT NULL
+);
+
+-- 2. Fact Tables
+
+CREATE TABLE CANCER_INCIDENCE_STAT (
+    stat_id SERIAL PRIMARY KEY,
+    year INTEGER NOT NULL,
+    count INTEGER,
+    incidence_rate FLOAT,
+    cancer_id INTEGER REFERENCES CANCER_TYPE(cancer_id),
+    sex_id INTEGER REFERENCES SEX(sex_id),
+    age_group_id INTEGER REFERENCES AGE_GROUP(age_group_id)
+);
