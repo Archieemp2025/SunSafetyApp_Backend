@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: Team#TA022 # Tell your team to use this
       POSTGRES_DB: uv_reality
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - ./db_init:/docker-entrypoint-initdb.d # This is the magic part
       - postgres_data:/var/lib/postgresql/data

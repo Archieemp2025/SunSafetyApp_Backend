@@ -50,8 +50,8 @@ def extract_city_info_from_zip(zf, file_name):
             df_coords = pd.read_csv(f, nrows=1)
             df_coords.columns = [c.replace('\ufeff', '').strip() for c in df_coords.columns]
             
-            lat = df_coords['Lat'].iloc[0]
-            lon = df_coords['Lon'].iloc[0]
+            lat = float(df_coords['Lat'].iloc[0])
+            lon = float(df_coords['Lon'].iloc[0])
             return city_name, lat, lon
     except Exception:
         # Silently skip files that aren't valid CSVs (like the Mac metadata files)
