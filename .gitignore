@@ -2,6 +2,6 @@
 .env
 
 # Ignore the raw data files
-*.xlsx
-*.csv
-Data/
+# *.xlsx
+# *.csv
+# Data/
