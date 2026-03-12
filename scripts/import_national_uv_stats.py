@@ -108,7 +108,7 @@ def load_and_aggregate_uv():
                     australian_uv_low = EXCLUDED.australian_uv_low,
                     australian_uv_high = EXCLUDED.australian_uv_high,
                     australian_uv_median = EXCLUDED.australian_uv_median
-            """), {"yr": int(row['year']), "lo": row['australian_uv_low'], "hi": row['australian_uv_high'], "med": row['australian_uv_median']})
+            """), {"yr": int(row['year']), "lo": float(row['australian_uv_low']), "hi": float(row['australian_uv_high']), "med": float(row['australian_uv_median'])})
         conn.commit()
     print(f"Success: {len(australia_year)} national records updated.")
 
