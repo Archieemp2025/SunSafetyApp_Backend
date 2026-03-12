@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.routers import uv, age_groups, melanoma
+from app.routers import uv, age_groups, melanoma
 
 
 # Create the FastAPI application instance.
@@ -16,6 +16,7 @@ app = FastAPI(
 allowed_origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://*.vercel.app",  # This allows any Vercel preview/deployment URL
 ]
 
 # CORS middleware so the browser allows the frontend to make requests to this backend from a different origin.
