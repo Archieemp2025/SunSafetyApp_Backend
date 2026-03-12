@@ -1,6 +1,6 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from app.routers import uv, age_groups, melanoma
+from fastapi import FastAPI # type: ignore
+from fastapi.middleware.cors import CORSMiddleware # type: ignore
+from backend.app.routers import uv, age_groups, melanoma
 
 
 # Create the FastAPI application instance.
